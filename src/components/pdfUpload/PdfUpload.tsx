@@ -22,7 +22,7 @@ const PdfUpload = () => {
 
   const onUploadClick = async () => {
     await axios
-      .post("http://localhost:3000/pdfReader", { pdfBase64: pdfFile })
+      .post("https://pdfcontentreader-1.onrender.com/pdfReader", { pdfBase64: pdfFile })
       .then((res: any) => {
         if (res) {
           setPdfContent(res.data);
