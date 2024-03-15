@@ -22,7 +22,7 @@ const PdfUpload = () => {
 
   const onUploadClick = async () => {
     await axios
-      .post("https://pdfcontentreader-1.onrender.com/pdfReader", {pdfBase64: pdfFile})
+      .post("http://localhost:3000/pdfReader", { pdfBase64: pdfFile })
       .then((res: any) => {
         if (res) {
           setPdfContent(res.data);
@@ -43,7 +43,10 @@ const PdfUpload = () => {
 
 
 
-      <div style={{border: '1'}} dangerouslySetInnerHTML={{__html: pdfTextContent}}></div>
+      <div style={{ border: '1' }} >
+        <div>{`First Price: ${pdfTextContent.firstPrice}`}</div>
+        <div>{`Second Price: ${pdfTextContent.secondPrice}`}</div>
+      </div>
     </>
   );
 };
